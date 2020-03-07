@@ -1,0 +1,14 @@
+version: "3"
+services:
+  # ポートの対応付け
+  # ファイル共有　docker toolboxでは c/Users 下のみ
+  postgres11:
+    build: .
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=Sample
+    ports:
+      - "8081:5432"
+    volumes:
+      - /c/Users/initdb:/docker-entrypoint-initdb.d
