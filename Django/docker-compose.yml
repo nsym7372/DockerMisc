@@ -1,0 +1,14 @@
+version: '3'
+services:
+    db:
+        image: postgres:11
+    web:
+        build: .
+        volumes:
+        - .:/code
+        tty: true
+        ports:
+        - "8000:8000"
+        links:
+        - db
+    
